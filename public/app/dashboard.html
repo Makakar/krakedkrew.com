@@ -176,7 +176,7 @@
   <script>
     (async function () {
       try {
-        const res = await fetch('/v1/me/summary', { credentials: 'include' });
+        const res = await fetch("/api/me", { credentials: "include" });
         if (!res.ok) throw new Error('Auth required');
         const data = await res.json();
 

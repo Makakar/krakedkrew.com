@@ -45,6 +45,10 @@ migrations = [
   { tag = "v1", new_sqlite_classes = ["Bus"] }
 ]
 
+[[env.production.routes]]
+pattern = "krakedkrew.com/*"
+zone_name = "krakedkrew.com"
+
 [env.production.vars]
 ALLOWED_ORIGIN = "https://krakedkrew.com"
 MAX_TICKETS_PER_CALL = "10000"
