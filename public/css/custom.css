@@ -1,0 +1,49 @@
+/* ===== Custom Theme Overrides (Bluey Purple) ===== */
+
+/* Global primary color override */
+.bg-primary {
+  background-color: #4a6cf7 !important; /* blue */
+}
+.text-primary {
+  color: #4a6cf7 !important;
+}
+.btn-primary {
+  background-color: #4a6cf7 !important;
+  border-color: #4a6cf7 !important;
+}
+.btn-primary:hover {
+  background-color: #3a56c9 !important;
+  border-color: #3a56c9 !important;
+}
+
+/* Navbar background (purple) */
+#mainNav {
+  background-color: #7c3aed !important; /* purple */
+}
+
+/* Section dividers accent */
+.divider-custom .divider-custom-line {
+  background-color: #7c3aed !important;
+}
+.divider-custom .divider-custom-icon {
+  color: #7c3aed !important;
+}
+
+/* Footer background */
+.footer {
+  background-color: #4a6cf7 !important;
+}
+.copyright {
+  background-color: #7c3aed !important;
+}
+
+/* Social buttons with purple accent */
+.btn-social {
+  border-radius: 50% !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+.btn-social:hover {
+  background-color: #7c3aed !important;
+  border-color: #7c3aed !important;
+}

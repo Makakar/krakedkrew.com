@@ -1,0 +1,47 @@
+/* ===== Brand Overrides: Bluey Purple (matches landing page) ===== */
+
+/* Sidebar gradient: blue → purple */
+.bg-gradient-primary {
+  background: linear-gradient(180deg, #4a6cf7 10%, #7c3aed 100%) !important;
+  background-size: cover;
+}
+
+/* Primary accents (cards, links, buttons) → blue */
+.text-primary { color: #4a6cf7 !important; }
+.border-left-primary { border-left: .25rem solid #4a6cf7 !important; }
+.btn-primary {
+  background-color: #4a6cf7 !important;
+  border-color: #4a6cf7 !important;
+}
+.btn-primary:hover {
+  background-color: #3a56c9 !important;
+  border-color: #3a56c9 !important;
+}
+
+/* Success accents (tickets) → teal to contrast */
+.text-success { color: #2dd4bf !important; }
+.border-left-success { border-left: .25rem solid #2dd4bf !important; }
+
+/* Info accents (giveaway) → purple */
+.text-info { color: #7c3aed !important; }
+.border-left-info { border-left: .25rem solid #7c3aed !important; }
+
+/* Outline secondary → purple */
+.btn-outline-secondary {
+  color: #7c3aed !important;
+  border-color: #7c3aed !important;
+}
+.btn-outline-secondary:hover {
+  background-color: #7c3aed !important;
+  color: #fff !important;
+}
+
+/* Sidebar brand icon flair */
+.sidebar .sidebar-brand-icon i {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.55);
+}
+
+/* Optional: link color alignment */
+a { color: #4a6cf7; }
+a:hover { color: #3a56c9; }
