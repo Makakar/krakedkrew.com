@@ -3,71 +3,64 @@ main = "src/_worker.js"
 compatibility_date = "2025-08-22"
 workers_dev = true
 
-# Serve static from public/
+# Serve /public
 [assets]
 directory = "public"
 binding = "ASSETS"
 
 # -----------------------------
-# Default vars (fallback)
-# -----------------------------
-[vars]
-MAX_TICKETS_PER_CALL = "10000"
-
-# -----------------------------
 # PREVIEW ENV
 # -----------------------------
 [env.preview]
-# Allow your workers.dev subdomain + pages.dev previews
-[env.preview.vars]
-ALLOWED_ORIGIN = "https://*.workers.dev,https://*.pages.dev"
-# This value is also stored as a secret (OAUTH_REDIRECT_URI)
-# but having it here helps documentation.
+# Durable Object migrations MUST be an array here
+migrations = [
+  { tag = "v1", new_classes = ["Bus"] }
+]
 
-# D1 (Preview)
+[env.preview.vars]
+# CORS allow-list for preview
+ALLOWED_ORIGIN = "https://*.workers.dev,https://*.pages.dev"
+# command clamp
+MAX_TICKETS_PER_CALL = "10000"
+
+# D1 (preview)
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "streamdb-preview"
 database_id = "71e16e4a-90f3-4b41-88f5-776595f106b8"
 
-# KV (Preview)
+# KV (preview)
 [[env.preview.kv_namespaces]]
 binding = "SESSIONS"
 id = "1ae21f8c880b48ea9ad116325023e402"
 
-# Durable Objects (Preview)
-[[env.preview.durable_objects.bindings]]
-name = "BUS"
-class_name = "Bus"
-
-[env.preview.migrations]
-tag = "v1"
-new_classes = ["Bus"]
+# DO (preview)
+[env.preview.durable_objects]
+bindings = [{ name = "BUS", class_name = "Bus" }]
 
 # -----------------------------
 # PRODUCTION ENV
 # -----------------------------
 [env.production]
-# Only allow your live domain(s)
+migrations = [
+  { tag = "v1", new_classes = ["Bus"] }
+]
+
 [env.production.vars]
 ALLOWED_ORIGIN = "https://krakedkrew.com"
+MAX_TICKETS_PER_CALL = "10000"
 
-# D1 (Prod)
+# D1 (prod)
 [[env.production.d1_databases]]
 binding = "DB"
 database_name = "streamdb-prod"
 database_id = "c02ca30b-63b7-451f-8568-096e90199dfc"
 
-# KV (Prod)
+# KV (prod)
 [[env.production.kv_namespaces]]
 binding = "SESSIONS"
 id = "813aca9ecfd8458a8dee844e20a3fd2e"
 
-# Durable Objects (Prod)
-[[env.production.durable_objects.bindings]]
-name = "BUS"
-class_name = "Bus"
-
-[env.production.migrations]
-tag = "v1"
-new_classes = ["Bus"]
+# DO (prod)
+[env.production.durable_objects]
+bindings = [{ name = "BUS", class_name = "Bus" }]
