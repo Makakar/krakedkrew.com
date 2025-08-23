@@ -14,9 +14,8 @@ binding = "ASSETS"
 [env.preview]
 # Durable Object migrations MUST be an array here
 migrations = [
-  { tag = "v1", new_classes = ["Bus"] }
+  { tag = "v1", new_sqlite_classes = ["Bus"] }
 ]
-
 [env.preview.vars]
 # CORS allow-list for preview
 ALLOWED_ORIGIN = "https://*.workers.dev,https://*.pages.dev"
@@ -43,7 +42,7 @@ bindings = [{ name = "BUS", class_name = "Bus" }]
 # -----------------------------
 [env.production]
 migrations = [
-  { tag = "v1", new_classes = ["Bus"] }
+  { tag = "v1", new_sqlite_classes = ["Bus"] }
 ]
 
 [env.production.vars]
